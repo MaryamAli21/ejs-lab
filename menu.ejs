@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+    <%- include('partials/nav.ejs') %> 
+
+  <h1>Full Menu</h1>
+  <h2>Mains</h2>
+    <% menu.forEach((item) => { %>
+        if (item.category.toLowerCase() === 'mains') {
+     <ul>
+     <li><h3><%= item.name %></h3></li>
+     <li><p>Price: $<%= item.price %></p></li>
+     <li><p>Rating: <%= item.rating %>/5</p></li>
+     <li><p><%= item.details %></p></li>
+            </ul>
+    <% } %>
+    <% }) %>
+    <h2>Desserts</h2>
+    <% menu.forEach((item) => { %>
+        <% if (item.category.toLowerCase() === 'desserts') { %>
+        <ul>
+            <li><h3><%= item.name %></h3></li>
+            <li><p>Price: $<%= item.price %></p></li>
+            <li><p>Rating: <%= item.rating %>/5</p></li>
+            <li><p><%= item.details %></p></li>
+        </ul>
+        <% } %>
+    <% }) %>
+    <h2>Sides</h2>
+    <% menu.forEach((item) => { %>
+        <% if (item.category.toLowerCase() === 'sides') { %>
+        <ul>
+            <li><h3><%= item.name %></h3></li>
+            <li><p>Price: $<%= item.price %></p></li>
+            <li><p>Rating: <%= item.rating %>/5</p></li>
+            <li><p><%= item.details %></p></li>
+        </ul>
+        <% } %>
+    <% }) %>
+
+  </ul>
+</body>
+</html>
