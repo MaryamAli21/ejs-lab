@@ -1,6 +1,9 @@
 const express = require('express');
-
-const app = express();
+const morgan = require("morgan");
+const ejs = require('ejs');
+app = express();
+app.use = express();
+app.use  = morgan();
 
 
 const RESTAURANT = {
