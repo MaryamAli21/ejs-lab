@@ -1,0 +1,76 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("../css/bc.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 3rem;
+  }
+  
+  h2 {
+    color: green;
+    font-size: 2rem;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  nav {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    background-color: #575757;
+  }
+
+nav {
+    background-color: #333; 
+    padding: 10px;
+    text-align: center;
+  
+ 
+  nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  nav a:hover {
+    background-color: #575757;
+  }
+  
+
+  nav a.active {
+    background-color: #4CAF50;
+    color: white; 
+  }
+  
+
+  nav a:not(:last-child) {
+    margin-right: 10px;
+  }

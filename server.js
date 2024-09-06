@@ -1,10 +1,9 @@
 const express = require('express');
-const morgan = require("morgan");
-const ejs = require('ejs');
-app = express();
-app.use = express();
-app.use  = morgan();
+const app = express();
+const morgan = require('morgan')
 
+app.use(morgan('dev'));
+app.use(express.static('public'));
 
 const RESTAURANT = {
     name: 'The Green Byte Bistro',
@@ -53,34 +52,21 @@ const RESTAURANT = {
         details: 'Crispy and lightly seasoned string bean fries, served in a pattern for a fun twist.'
       }
     ]
-  }
+};
+
 
 app.get('/', (req, res) => {
-    res.render('home.ejs', {RESTAURANT});
-})
+    res.render('home.ejs',RESTAURANT);
+});
 
 app.get('/menu', (req, res) => {
-  res.render('menu.ejs', {menu : RESTAURANT.menu});
-})
+    res.render('menu.ejs',RESTAURANT);
+});
 
-app.get('/menu/:category', (req,res) => {
-
-  let menuItems = [];
-  if (req.params.category === 'mains') {
-      menuItems = (RESTAURANT.menu.filter((item) => item.category === 'mains'));
-  }
-  if (req.params.category === 'desserts') {
-      menuItems = (RESTAURANT.menu.filter((item) => item.category === 'desserts'));
-  }
-  if (req.params.category === 'sides') {
-      menuItems = (RESTAURANT.menu.filter((item) => item.category === 'sides'));
-  }
-  menuItems.forEach((item) => {
-      item.category = item.category.charAt(0).toUpperCase() + item.category.slice(1);
-  })
-  res.render('category.ejs',{menuItems});
-})
-
-
+app.get('/menu/:category', (req, res) => {
+    const menuItems = RESTAURANT.menu.filter((item) => item.category === req.params['category']);
+    const categoryName = req.params['category'];
+    res.render('category.ejs',{menuItems, categoryName});
+});
 
 app.listen(3000);
